@@ -27,4 +27,18 @@ public class Selenide {
 
     }
 
-}
+    @Test
+    void selenideSearchPagesSoftAssertions() {
+
+        open("https://github.com/selenide/selenide");
+        $("#wiki-tab").click();
+        $$(".wiki-more-pages-link").first().$("[type='button']").click();
+        $(".wiki-rightbar").shouldHave(text("SoftAssertions"));
+        $(".Truncate", 16).click();
+        $("#wiki-content").shouldHave(text("Using JUnit5 extend test class:"));
+
+        }
+
+    }
+
+
