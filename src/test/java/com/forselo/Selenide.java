@@ -21,9 +21,9 @@ public class Selenide {
 
         open("https://github.com/selenide/selenide");
         $("#wiki-tab").click();
-        $("#wiki-pages-filter").setValue("SoftAssertions");
-        $(".filterable-active").$(byText("SoftAssertions")).click();
-        $(".Layout-main").shouldHave(text("3. Using JUnit5 extend test class:"));
+        $(".Header-old").$(byText("Solutions")).hover();
+        $(".border-bottom").$(byText("Enterprise")).click();
+        $(".application-main").shouldHave(text("Build like the best"));
 
     }
 
@@ -36,6 +36,10 @@ public class Selenide {
         $(".wiki-rightbar").shouldHave(text("SoftAssertions"));
         $(".Truncate", 16).click();
         $("#wiki-content").shouldHave(text("Using JUnit5 extend test class:"));
+
+
+
+
 
         }
 
