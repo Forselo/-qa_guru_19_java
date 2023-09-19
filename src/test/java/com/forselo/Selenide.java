@@ -34,7 +34,17 @@ public class Selenide {
         $$(".wiki-more-pages-link").first().$("[type='button']").click();
         $(".wiki-rightbar").shouldHave(text("SoftAssertions"));
         $(".Truncate", 16).click();
-        $("#wiki-content").shouldHave(text("Using JUnit5 extend test class:"));
+        $("#wiki-content").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
+                "class Tests {\n" +
+                "  @Test\n" +
+                "  void test() {\n" +
+                "    Configuration.assertionMode = SOFT;\n" +
+                "    open(\"page.html\");\n" +
+                "\n" +
+                "    $(\"#first\").should(visible).click();\n" +
+                "    $(\"#second\").should(visible).click();\n" +
+                "  }\n" +
+                "}"));
      }
 
     }
